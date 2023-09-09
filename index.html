@@ -4,26 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
   </head>
-
   <body>
     <div class="conatiner-fluid">
+      <p
+        class="text-primary display-4"
+        style="text-align: center; margin-top: 5%"
+      >
+        BMI CALCULATOR
+      </p>
+
       <div
         class="justify-content-center"
-        style="margin-top: 20%; margin-left: 25%"
+        style="margin-top: 8%; margin-left: 25%"
       >
         <form class="row g-3">
           <div class="col-auto">
             <label for="weight" class="visually-hidden">Weight</label>
-            <input type="number" class="weight" />
+            <input type="number" class="weight" placeholder="weight" />
           </div>
           <div class="col-auto">
             <label for="height" class="visually-hidden">Height</label>
-            <input type="number" class="height" />
+            <input type="number" class="height" placeholder="height" />
           </div>
-          <div class="col-auto">
+          <div class="mb-3">
             <button
               type="submit"
               onclick="calculate()"
@@ -32,10 +38,10 @@
               Calculate BMI
             </button>
           </div>
-          <label for="resultArea" style="margin-left: 20%; margin-top: 5%">
-            Result: <span class="result"></span>
-          </label>
         </form>
+        <label for="resultArea" style="margin-top: 5%">
+          Result: <span class="result"></span>
+        </label>
       </div>
     </div>
     <script>
