@@ -1,35 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/bootstrap-grid.min.css" />
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="conatiner-fluid">
-        <div class="row justify-content-center">
-            <div class="col-sm-8">
-                <div class="mb-3 row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-10">
-                        <input type="text" readonly class="form-control-plaintext" id="staticEmail"
-                            value="email@example.com">
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                    <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword">
-                    </div>
-                </div>
-            </div>
+      <div
+        class="justify-content-center"
+        style="margin-top: 20%; margin-left: 25%"
+      >
+        <form class="row g-3">
+          <div class="col-auto">
+            <label for="weight" class="visually-hidden">Weight</label>
+            <input type="number" class="weight" />
+          </div>
+          <div class="col-auto">
+            <label for="height" class="visually-hidden">Height</label>
+            <input type="number" class="height" />
+          </div>
+          <div class="col-auto">
+            <button
+              type="submit"
+              onclick="calculate()"
+              class="btn btn-primary mb-3"
+            >
+              Calculate BMI
+            </button>
+          </div>
+          <label for="resultArea" style="margin-left: 20%; margin-top: 5%">
+            Result: <span class="result"></span>
+          </label>
+        </form>
+      </div>
+    </div>
+    <script>
+      function calculate() {
+        event.preventDefault(); // Prevent form submission and page refresh
 
-        </div>
-    </div>
-    </div>
-</body>
+        const weight = parseFloat(document.querySelector('.weight').value);
+        const height = parseFloat(document.querySelector('.height').value);
+        const resultLabel = document.querySelector('.result');
+
+        if (isNaN(weight) || isNaN(height)) {
+          alert('Please Input a value');
+        } else {
+          const result = weight / (height * height);
+          resultLabel.innerText = result.toFixed(2);
+        }
+      }
+    </script>
+  </body>
 </html>
